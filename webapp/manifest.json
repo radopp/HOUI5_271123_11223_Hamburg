@@ -57,6 +57,14 @@
         "settings": {
           "bundleName": "at.clouddna.training00.zhoui5.i18n.i18n"
         }
+      },
+      "": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "data/customers.json"
+      },
+      "genderModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "data/genders.json"
       }
     },
     "resources": {
@@ -83,10 +91,24 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "name": "RouteCustomer",
+          "pattern": "customer",
+          "target": [
+            "TargetCustomer"
+          ]
         }
       ],
       "targets": {
         "TargetMain": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Main",
+          "viewName": "Main"
+        },
+        "TargetCustomer": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,

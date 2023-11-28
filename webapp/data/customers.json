@@ -1,0 +1,37 @@
+{
+    "customers": [
+        {
+            "Customerid": "1000001",
+            "Firstname": "Max",
+            "Lastname": "Mustermann",
+            "Title": "Dr.",
+            "Gender": "male",
+            "Email": "max.mustermann@clouddna.at",
+            "Phone": "+43676123121",
+            "Website": "www.clouddna.at",
+            "Birthdate": "1984/04/20"
+        },
+        {
+            "Customerid": "1000002",
+            "Firstname": "Margit",
+            "Lastname": "Mustermann",
+            "Title": "Dr.",
+            "Gender": "female",
+            "Email": "Anna.mustermann@clouddna.at",
+            "Phone": "+43676123122",
+            "Website": "www.clouddna.at",
+            "Birthdate": "20.04.1990"
+        },
+        {
+            "Customerid": "1000003",
+            "Firstname": "Felix",
+            "Lastname": "Mustermann",
+            "Title": "",
+            "Gender": "male",
+            "Email": "felix.mustermann@clouddna.at",
+            "Phone": "+43676123123",
+            "Website": "www.clouddna.at",
+            "Birthdate": "20.04.2004"
+        }
+    ]
+}

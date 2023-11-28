@@ -1,0 +1,126 @@
+<mvc:View
+    controllerName="at.clouddna.training00.zhoui5.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:s="sap.f.semantic"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+>
+    <s:SemanticPage id="main_page">
+        <s:titleHeading>
+            <Title
+                text="{i18n>title}"
+                id="main_title"
+            />
+        </s:titleHeading>
+        <s:content>
+            <Table
+                items="{/customers}"
+                id="main_table"
+                headerText="{i18n>main.table.title}"
+            >
+                <columns>
+                    <Column id="idMainColumn">
+                        <Text
+                            id="main_text_customerid"
+                            text="{i18n>app.customerid}"
+                        />
+                    </Column>
+                    <Column id="main_column_firstname">
+                        <Text
+                            id="main_text_firstname"
+                            text="{i18n>app.firstname}"
+                        />
+                    </Column>
+                    <Column id="main_column_lastname">
+                        <Text
+                            id="main_text_lastname"
+                            text="{i18n>app.lastname}"
+                        />
+                    </Column>
+                    <Column
+                        id="main_column_title"
+                        minScreenWidth="Desktop"
+                    >
+                        <Text
+                            id="main_text_title"
+                            text="{i18n>app.title}"
+                        />
+                    </Column>
+                    <Column
+                        id="main_column_gender"
+                        minScreenWidth="Desktop"
+                    >
+                        <Text
+                            id="main_text_gender"
+                            text="{i18n>app.gender}"
+                        />
+                    </Column>
+                    <Column
+                        id="main_column_birthdate"
+                        minScreenWidth="Desktop"
+                    >
+                        <Text
+                            id="main_text_birthdate"
+                            text="{i18n>app.birthdate}"
+                        />
+                    </Column>
+                    <Column
+                        id="main_column_email"
+                        minScreenWidth="Desktop"
+                    >
+                        <Text
+                            id="main_text_email"
+                            text="{i18n>app.email}"
+                        />
+                    </Column>
+                    <Column
+                        id="main_column_phone"
+                        minScreenWidth="Desktop"
+                    >
+                        <Text
+                            id="main_text_phone"
+                            text="{i18n>app.phone}"
+                        />
+                    </Column>
+                    <Column
+                        id="main_column_website"
+                        minScreenWidth="Desktop"
+                    >
+                        <Text
+                            id="main_text_website"
+                            text="{i18n>app.website}"
+                        />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        press="onItemPress"
+                        type="Active"
+                    >
+                        <cells>
+                            <ObjectIdentifier title="{Customerid}" />
+                            <Text text="{Firstname}" />
+                            <Text text="{Lastname}" />
+                            <Text text="{Title}" />
+                            <Text
+                                text="{path:'Gender', formatter: '.genderFormatter'}"
+                            />
+                            <Text
+                                text="{path: 'Birthdate', formatter: '.dateFormatter' }"
+                            />
+                            <Text text="{Email}" />
+                            <Text text="{Phone}" />
+                            <Link
+                                text="{Website}"
+                                href="https://{Website}"
+                                target="_blank"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </s:content>
+    </s:SemanticPage>
+</mvc:View>

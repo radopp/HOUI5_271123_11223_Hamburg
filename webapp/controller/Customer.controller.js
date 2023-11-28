@@ -7,7 +7,7 @@ sap.ui.define([
     function (Controller) {
         "use strict";
 
-        return Controller.extend("at.clouddna.training00.zhoui5.controller.Main", {
+        return Controller.extend("at.clouddna.training00.zhoui5.controller.Customer", {
             onInit: function () {
 
             }
