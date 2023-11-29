@@ -16,7 +16,7 @@
         </s:titleHeading>
         <s:content>
             <Table
-                items="{/customers}"
+                items="{/Z_P_CUSTOMER}"
                 id="main_table"
                 headerText="{i18n>main.table.title}"
             >

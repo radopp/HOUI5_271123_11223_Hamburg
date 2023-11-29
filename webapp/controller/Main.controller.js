@@ -20,6 +20,7 @@ sap.ui.define([
 
                 let sPath = oEvent.getSource().getBindingContext().getPath();
 
+                debugger;
                 oRouter.navTo("RouteCustomer", { path: encodeURIComponent(sPath) });
             }
         });
