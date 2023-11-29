@@ -1,0 +1,53 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+>
+    <f:SimpleForm title="{Firstname} {Lastname}">
+        <Label
+            text="{i18n>app.customerid}"
+            labelFor="customerid"
+        />
+        <Text text="{Customerid}" />
+        <Label
+            text="{i18n>app.firstname}"
+            labelFor="firstname"
+        />
+        <Input value="{Firstname}" />
+        <Label
+            text="{i18n>app.lastname}"
+            labelFor="lastname"
+        />
+        <Input value="{Lastname}" />
+        <Label
+            text="{i18n>app.title}"
+            labelFor="title"
+        />
+        <Input value="{Title}" />
+        <Label
+            text="{i18n>app.gender}"
+            labelFor="gender"
+        />
+        <Input value="{path: 'Gender', formatter: '.genderFormatter'}" />
+        <Label
+            text="{i18n>app.email}"
+            labelFor="email"
+        />
+        <Input value="{Email}" />
+        <Label
+            text="{i18n>app.phone}"
+            labelFor="phone"
+        />
+        <Input value="{Phone}" />
+        <Label
+            text="{i18n>app.website}"
+            labelFor="website"
+        />
+        <Input value="{Website}" />
+        <Label
+            text="{i18n>app.birthdate}"
+            labelFor="birthdate"
+        />
+        <Input value="{Birthdate}" />
+    </f:SimpleForm>
+</core:FragmentDefinition>

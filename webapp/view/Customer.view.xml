@@ -5,123 +5,63 @@
     xmlns="sap.m"
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core"
+    xmlns:u="sap.uxap"
 >
-    <Page
-        id="page"
-        title="{i18n>title}"
+    <u:ObjectPageLayout
+        id="ObjectPageLayout"
+        showTitleInHeaderContent="true"
+        upperCaseAnchorBar="false"
+        showFooter="true"
     >
-        <content>
-            <f:SimpleForm
-                id="app_simpleform"
-                editable="true"
-                layout="ResponsiveGridLayout"
-                title="{i18n>title}"
-                labelSpanXL="3"
-                labelSpanL="3"
-                labelSpanM="3"
-                labelSpanS="12"
-                adjustLabelSpan="false"
-                emptySpanXL="4"
-                emptySpanL="4"
-                emptySpanM="4"
-                emptySpanS="0"
-                columnsXL="1"
-                columnsL="1"
-                columnsM="1"
-                singleContainerFullSize="false"
+        <u:headerTitle>
+            <u:ObjectPageDynamicHeaderTitle>
+                <u:expandedHeading>
+                    <Title text="Kundendetails" />
+                </u:expandedHeading>
+                <u:actions>
+                    <Button
+                        text="Bearbeiten"
+                        press="onEditPress"
+                        visible="{= !${viewModel>/editMode}}"
+                    />
+                </u:actions>
+            </u:ObjectPageDynamicHeaderTitle>
+        </u:headerTitle>
+        <u:sections>
+            <u:ObjectPageSection>
+                <u:subSections>
+                    <u:ObjectPageSubSection>
+                        <u:blocks>
+                            <core:Fragment
+                                fragmentName="at.clouddna.training00.zhoui5.view.fragment.DisplayCustomer"
+                                type="XML"
+                            />
+                        </u:blocks>
+                    </u:ObjectPageSubSection>
+                </u:subSections>
+            </u:ObjectPageSection>
+        </u:sections>
+        <u:footer>
+            <Toolbar
+                visible="true"
+                id="app_bar_footer"
             >
-                <f:content>
-                    <Label
-                        id="app_label_customerid"
-                        text="{i18n>app.customerid}"
-                        labelFor="app_text_customerid"
-                    />
-                    <Text
-                        id="app_text_customerid"
-                        text="1000001"
-                    />
-
-                    <Label
-                        id="app_label_firstname"
-                        text="{i18n>app.firstname}"
-                        labelFor="app_input_firstname"
-                    />
-                    <Input
-                        id="app_input_firstname"
-                        value="Max"
-                    />
-
-                    <Label
-                        id="app_label_lastname"
-                        text="{i18n>app.lastname}"
-                        labelFor="app_input_lastname"
-                    />
-                    <Input
-                        id="app_input_lastname"
-                        value="Mustermann"
-                    />
-
-                    <Label
-                        id="app_label_title"
-                        text="{i18n>app.title}"
-                        labelFor="app_input_title"
-                    />
-                    <Input
-                        id="app_input_title"
-                        value="Dr."
-                    />
-
-                    <Label
-                        id="app_label_gender"
-                        text="{i18n>app.gender}"
-                        labelFor="app_select_gender"
-                    />
-                    <Select id="app_select_gender">
-                        <items>
-                            <core:Item
-                                id="app_item_female"
-                                key="female"
-                                text="{i18n>female}"
-                            />
-                            <core:Item
-                                id="app_item_male"
-                                key="male"
-                                text="{i18n>male}"
-                            />
-                        </items>
-                    </Select>
-
-                    <Label
-                        id="app_label_email"
-                        text="{i18n>app.email}"
-                        labelFor="app_input_email"
-                    />
-                    <Input
-                        id="app_input_email"
-                        value="max.mustermann@clouddna.at"
-                    />
-
-                    <Label
-                        id="app_label_phone"
-                        text="{i18n>app.phone}"
-                        labelFor="app_input_phone"
-                    />
-                    <Input
-                        id="app_input_phone"
-                        value="+43676123123"
-                    />
-
-                    <Label
-                        id="app_label_website"
-                        text="{i18n>app.website}"
-                        labelFor="app_input_website"
-                    />
-                    <Input
-                        id="app_input_website"
-                        value="https://clouddna.at"
-                    />
-                </f:content>
-            </f:SimpleForm>
-        </content>
-    </Page>
+                <ToolbarSpacer />
+                <Button
+                    id="app_save_button"
+                    text="{i18n>save}"
+                    type="Accept"
+                    icon="sap-icon://save"
+                    press="onSavePressed"
+                />
+                <Button
+                    id="app_cancel_button"
+                    text="{i18n>cancel}"
+                    type="Reject"
+                    icon="sap-icon://cancel"
+                    press="onCancelPressed"
+                />
+            </Toolbar>
+        </u:footer>
+    </u:ObjectPageLayout>
 </mvc:View>

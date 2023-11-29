@@ -94,7 +94,7 @@
         },
         {
           "name": "RouteCustomer",
-          "pattern": "customer",
+          "pattern": "customer'{path}'",
           "target": [
             "TargetCustomer"
           ]

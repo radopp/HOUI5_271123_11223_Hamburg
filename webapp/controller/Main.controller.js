@@ -28,7 +28,11 @@ sap.ui.define([
             },
 
             onItemPress: function (oEvent) {
-                debugger;
+                let oRouter = this.getOwnerComponent().getRouter();
+
+                let sPath = oEvent.getSource().getBindingContext().getPath();
+
+                oRouter.navTo("RouteCustomer", { path: encodeURIComponent(sPath) });
             }
         });
     });
