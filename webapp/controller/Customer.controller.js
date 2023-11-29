@@ -1,22 +1,28 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/core/Fragment"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel) {
+    function (Controller, JSONModel, Fragment) {
         "use strict";
 
         return Controller.extend("at.clouddna.training00.zhoui5.controller.Customer", {
+
+            _fragmentList: {},
+
             onInit: function () {
                 this.getOwnerComponent().getRouter().getRoute("RouteCustomer").attachPatternMatched(this.onPatternMatched.bind(this));
 
                 let oJsonModel = new JSONModel({
-                    editMode: true
+                    editMode: false
                 });
 
                 this.getView().setModel(oJsonModel, "viewModel");
+
+                this._showCustomerFragment("DisplayCustomer");
             },
 
             onPatternMatched: function (oEvent) {
@@ -25,7 +31,45 @@ sap.ui.define([
                 //Parameter verwenden
 
                 this.getView().bindElement(sPath);
+            },
+
+            _showCustomerFragment: function (sFragmentName) {
+                let oObjectPage = this.getView().byId("ObjectPageLayout");
+                oObjectPage.removeAllSections();
+
+                let fnAfterLoading = function (oFragment) {
+                    this._fragmentList[sFragmentName] = oFragment;
+                    oObjectPage.addSection(oFragment);
+                }.bind(this);
+
+                if (!this._fragmentList[sFragmentName]) {
+                    Fragment.load({ name: "at.clouddna.training00.zhoui5.view.fragment." + sFragmentName }).then(fnAfterLoading);
+                } else {
+                    oObjectPage.addSection(this._fragmentList[sFragmentName]);
+                }
+            },
+
+            _toggleEdit: function (bEditMode) {
+                let oViewModel = this.getView().getModel("viewModel");
+
+                oViewModel.setProperty("/editMode", bEditMode);
+
+                this._showCustomerFragment(bEditMode ? "ChangeCustomer" : "DisplayCustomer");
+            },
+
+            onEditPress: function (oEvent) {
+                this._toggleEdit(true);
+            },
+
+            onCancelPress: function (oEvent) {
+                this._toggleEdit(false);
+            },
+
+            onSavePress: function (oEvent) {
+                this._toggleEdit(false);
             }
+
+
 
         });
     });

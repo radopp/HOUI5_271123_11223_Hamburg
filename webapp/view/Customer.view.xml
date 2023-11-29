@@ -20,27 +20,14 @@
                 </u:expandedHeading>
                 <u:actions>
                     <Button
-                        text="Bearbeiten"
+                        text="{i18n>edit}"
                         press="onEditPress"
                         visible="{= !${viewModel>/editMode}}"
                     />
                 </u:actions>
             </u:ObjectPageDynamicHeaderTitle>
         </u:headerTitle>
-        <u:sections>
-            <u:ObjectPageSection>
-                <u:subSections>
-                    <u:ObjectPageSubSection>
-                        <u:blocks>
-                            <core:Fragment
-                                fragmentName="at.clouddna.training00.zhoui5.view.fragment.DisplayCustomer"
-                                type="XML"
-                            />
-                        </u:blocks>
-                    </u:ObjectPageSubSection>
-                </u:subSections>
-            </u:ObjectPageSection>
-        </u:sections>
+        <u:sections />
         <u:footer>
             <Toolbar
                 visible="true"
@@ -52,14 +39,16 @@
                     text="{i18n>save}"
                     type="Accept"
                     icon="sap-icon://save"
-                    press="onSavePressed"
+                    press="onSavePress"
+                    visible="{viewModel>/editMode}"
                 />
                 <Button
                     id="app_cancel_button"
                     text="{i18n>cancel}"
                     type="Reject"
                     icon="sap-icon://cancel"
-                    press="onCancelPressed"
+                    press="onCancelPress"
+                    visible="{viewModel>/editMode}"
                 />
             </Toolbar>
         </u:footer>

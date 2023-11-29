@@ -2,52 +2,67 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
     xmlns:f="sap.ui.layout.form"
+    xmlns:u="sap.uxap"
 >
-    <f:SimpleForm title="{Firstname} {Lastname}">
-        <Label
-            text="{i18n>app.customerid}"
-            labelFor="customerid"
-        />
-        <Text text="{Customerid}" />
-        <Label
-            text="{i18n>app.firstname}"
-            labelFor="firstname"
-        />
-        <Input value="{Firstname}" />
-        <Label
-            text="{i18n>app.lastname}"
-            labelFor="lastname"
-        />
-        <Input value="{Lastname}" />
-        <Label
-            text="{i18n>app.title}"
-            labelFor="title"
-        />
-        <Input value="{Title}" />
-        <Label
-            text="{i18n>app.gender}"
-            labelFor="gender"
-        />
-        <Input value="{path: 'Gender', formatter: '.genderFormatter'}" />
-        <Label
-            text="{i18n>app.email}"
-            labelFor="email"
-        />
-        <Input value="{Email}" />
-        <Label
-            text="{i18n>app.phone}"
-            labelFor="phone"
-        />
-        <Input value="{Phone}" />
-        <Label
-            text="{i18n>app.website}"
-            labelFor="website"
-        />
-        <Input value="{Website}" />
-        <Label
-            text="{i18n>app.birthdate}"
-            labelFor="birthdate"
-        />
-        <Input value="{Birthdate}" />
-    </f:SimpleForm>
+    <u:ObjectPageSection>
+        <u:subSections>
+            <u:ObjectPageSubSection>
+                <u:blocks>
+                    <f:SimpleForm
+                        title="{Firstname} {Lastname}"
+                        editable="true"
+                    >
+                        <Label text="{i18n>app.customerid}" />
+                        <Input value="{Customerid}" />
+
+                        <Label text="{i18n>app.firstname}" />
+                        <Input value="{Firstname}" />
+
+                        <Label text="{i18n>app.lastname}" />
+                        <Input value="{Lastname}" />
+
+                        <Label text="{i18n>app.title}" />
+                        <Input value="{Title}" />
+
+                        <Label text="{i18n>app.gender}" />
+                        <Select
+                            selectedKey="{Gender}"
+                            items="{genderModel>/genders}"
+                        >
+                            <items>
+                                <core:Item
+                                    key="{genderModel>key}"
+                                    text="{path: 'genderModel>text', formatter: '.genderFormatter'}"
+                                />
+                            </items>
+                        </Select>
+
+                        <Label text="{i18n>app.email}" />
+                        <Input
+                            type="Email"
+                            value="{Email}"
+                        />
+
+                        <Label
+                            text="{i18n>app.phone}"
+                            labelFor="phone"
+                        />
+                        <Input
+                            type="Tel"
+                            value="{Phone}"
+                        />
+
+                        <Label text="{i18n>app.website}" />
+                        <Input value="{Website}" />
+
+                        <Label text="{i18n>app.birthdate}" />
+                        <Input
+                            type="Date"
+                            value="{Birthdate}"
+                        />
+                    </f:SimpleForm>
+                </u:blocks>
+            </u:ObjectPageSubSection>
+        </u:subSections>
+    </u:ObjectPageSection>
 </core:FragmentDefinition>
