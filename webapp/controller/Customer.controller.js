@@ -1,17 +1,20 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/core/Fragment"
+    "sap/ui/core/Fragment",
+    "at/clouddna/training00/zhoui5/data/formatter/Formatter",
+    "sap/m/MessageBox"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Fragment) {
+    function (Controller, JSONModel, Fragment, Formatter, MessageBox) {
         "use strict";
 
         return Controller.extend("at.clouddna.training00.zhoui5.controller.Customer", {
 
             _fragmentList: {},
+            formatter: Formatter,
 
             onInit: function () {
                 this.getOwnerComponent().getRouter().getRoute("RouteCustomer").attachPatternMatched(this.onPatternMatched.bind(this));
@@ -43,7 +46,10 @@ sap.ui.define([
                 }.bind(this);
 
                 if (!this._fragmentList[sFragmentName]) {
-                    Fragment.load({ name: "at.clouddna.training00.zhoui5.view.fragment." + sFragmentName }).then(fnAfterLoading);
+                    Fragment.load({
+                        name: "at.clouddna.training00.zhoui5.view.fragment." + sFragmentName,
+                        controller: this
+                    }).then(fnAfterLoading);
                 } else {
                     oObjectPage.addSection(this._fragmentList[sFragmentName]);
                 }
@@ -67,7 +73,9 @@ sap.ui.define([
 
             onSavePress: function (oEvent) {
                 this._toggleEdit(false);
-            }
+
+                MessageBox.success("Erfolgreich gespeichert");
+            },
 
 
 

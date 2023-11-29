@@ -1,30 +1,18 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "at/clouddna/training00/zhoui5/data/formatter/Formatter"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller, Formatter) {
         "use strict";
 
         return Controller.extend("at.clouddna.training00.zhoui5.controller.Main", {
+
+            formatter: Formatter,
+
             onInit: function () {
-
-            },
-
-            dateFormatter: function (sDate) {
-                let dateObj = new Date(sDate);
-
-                return dateObj.getDate() + "." + (dateObj.getMonth() + 1) + "." + dateObj.getFullYear();
-            },
-
-            genderFormatter: function (sKey) {
-                let oView = this.getView(),
-                    oResourceModel = oView.getModel("i18n"),
-                    oResourceBundle = oResourceModel.getResourceBundle(),
-                    sText = oResourceBundle.getText(sKey);
-
-                return sText;
             },
 
             onItemPress: function (oEvent) {

@@ -47,7 +47,7 @@
                         />
                         <Text
                             id="gender"
-                            text="{path: 'Gender', formatter: '.genderFormatter'}"
+                            text="{path: 'Gender', formatter: '.formatter.gender'}"
                         />
                         <Label
                             text="{i18n>app.email}"
