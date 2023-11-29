@@ -18,6 +18,7 @@ sap.ui.define([
 
             onInit: function () {
                 this.getOwnerComponent().getRouter().getRoute("RouteCustomer").attachPatternMatched(this.onPatternMatched.bind(this));
+                this.getOwnerComponent().getRouter().getRoute("CreateCustomer").attachPatternMatched(this.onCreateCustomerMatched.bind(this));
 
                 let oJsonModel = new JSONModel({
                     editMode: false
@@ -34,6 +35,15 @@ sap.ui.define([
                 //Parameter verwenden
 
                 this.getView().bindElement(sPath);
+            },
+
+            onCreateCustomerMatched: function (oEvent) {
+                let oArguments = oEvent.getParameter("arguments");
+                let sPath = decodeURIComponent(oArguments.path);
+                //Parameter verwenden
+
+                this.getView().bindElement(sPath);
+                this._toggleEdit(true);
             },
 
             _showCustomerFragment: function (sFragmentName) {
@@ -69,12 +79,22 @@ sap.ui.define([
 
             onCancelPress: function (oEvent) {
                 this._toggleEdit(false);
+
+                this.getModel().resetChanges();
             },
 
             onSavePress: function (oEvent) {
                 this._toggleEdit(false);
 
-                MessageBox.success("Erfolgreich gespeichert");
+                this.getView().getModel().submitChanges({
+                    success: function (oData, response) {
+                        MessageBox.success("Erfolgreich gespeichert!");
+                    }.bind(this),
+                    error: function (oErorr) {
+                        MessageBox.error("Speichern fehlgeschlagen");
+                    }.bind(this)
+                });
+
             },
 
 

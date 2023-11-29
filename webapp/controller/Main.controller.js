@@ -20,8 +20,16 @@ sap.ui.define([
 
                 let sPath = oEvent.getSource().getBindingContext().getPath();
 
-                debugger;
                 oRouter.navTo("RouteCustomer", { path: encodeURIComponent(sPath) });
+            },
+
+            onCreatePress: function (oEvent) {
+                let oModel = this.getView().getModel(),
+                    sPath = oModel.createEntry("Z_P_CUSTOMER").getPath();
+
+
+                this.getOwnerComponent().getRouter().navTo("CreateCustomer", { path: encodeURIComponent(sPath) });
+
             }
         });
     });

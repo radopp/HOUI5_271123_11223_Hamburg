@@ -20,7 +20,7 @@
                 "uri": "/destinations/S4D_100/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='Z_HOUI5_CUSTOMER_UI_V2_VAN',Version='0001')/$value/",
                 "type": "ODataAnnotation",
                 "settings": {
-                    "localUri": "localService/Z_HOUI5_CUSTOMER_UI_V21/Z_HOUI5_CUSTOMER_UI_V21_Annotation.xml"
+                    "localUri": "localService/Z_HOUI5_CUSTOMER_UI_V2/Z_HOUI5_CUSTOMER_UI_V21_Annotation.xml"
                 }
             },
             "Z_HOUI5_CUSTOMER_UI_V2": {
@@ -30,7 +30,7 @@
                     "annotations": [
                         "Z_HOUI5_CUSTOMER_UI_V21_Annotation"
                     ],
-                    "localUri": "localService/Z_HOUI5_CUSTOMER_UI_V21/metadata.xml",
+                    "localUri": "localService/Z_HOUI5_CUSTOMER_UI_V2/metadata.xml",
                     "odataVersion": "2.0"
                 }
             }
@@ -123,6 +123,13 @@
                 {
                     "name": "RouteCustomer",
                     "pattern": "customer'{path}'",
+                    "target": [
+                        "TargetCustomer"
+                    ]
+                },
+                {
+                    "name": "CreateCustomer",
+                    "pattern": "createcustomer'{path}'",
                     "target": [
                         "TargetCustomer"
                     ]

@@ -13,7 +13,7 @@
                         editable="true"
                     >
                         <Label text="{i18n>app.customerid}" />
-                        <Input value="{Customerid}" />
+                        <ObjectIdentifier text="{Customerid}" />
 
                         <Label text="{i18n>app.firstname}" />
                         <Input value="{Firstname}" />

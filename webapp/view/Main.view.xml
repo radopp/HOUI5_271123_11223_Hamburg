@@ -18,8 +18,17 @@
             <Table
                 items="{/Z_P_CUSTOMER}"
                 id="main_table"
-                headerText="{i18n>main.table.title}"
             >
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="{i18n>main.table.title}" />
+                        <ToolbarSpacer />
+                        <Button
+                            text="Create Customer"
+                            press="onCreatePress"
+                        />
+                    </Toolbar>
+                </headerToolbar>
                 <columns>
                     <Column id="idMainColumn">
                         <Text
