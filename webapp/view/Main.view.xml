@@ -18,6 +18,8 @@
             <Table
                 items="{/Z_P_CUSTOMER}"
                 id="main_table"
+                mode="Delete"
+                delete="onDeletePress"
             >
                 <headerToolbar>
                     <Toolbar>

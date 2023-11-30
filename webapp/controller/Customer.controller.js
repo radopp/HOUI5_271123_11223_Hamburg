@@ -3,12 +3,13 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
     "at/clouddna/training00/zhoui5/data/formatter/Formatter",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/ui/core/routing/History"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Fragment, Formatter, MessageBox) {
+    function (Controller, JSONModel, Fragment, Formatter, MessageBox, History) {
         "use strict";
 
         return Controller.extend("at.clouddna.training00.zhoui5.controller.Customer", {
@@ -26,7 +27,6 @@ sap.ui.define([
 
                 this.getView().setModel(oJsonModel, "viewModel");
 
-                this._showCustomerFragment("DisplayCustomer");
             },
 
             onPatternMatched: function (oEvent) {
@@ -35,6 +35,8 @@ sap.ui.define([
                 //Parameter verwenden
 
                 this.getView().bindElement(sPath);
+                this._showCustomerFragment("DisplayCustomer");
+
             },
 
             onCreateCustomerMatched: function (oEvent) {
@@ -80,7 +82,7 @@ sap.ui.define([
             onCancelPress: function (oEvent) {
                 this._toggleEdit(false);
 
-                this.getModel().resetChanges();
+                this.getView().getModel().resetChanges();
             },
 
             onSavePress: function (oEvent) {
@@ -89,12 +91,25 @@ sap.ui.define([
                 this.getView().getModel().submitChanges({
                     success: function (oData, response) {
                         MessageBox.success("Erfolgreich gespeichert!");
+                        this.onNavBack();
                     }.bind(this),
                     error: function (oErorr) {
                         MessageBox.error("Speichern fehlgeschlagen");
                     }.bind(this)
                 });
 
+            },
+
+            onNavBack: function () {
+                var oHistory = History.getInstance();
+                var sPreviousHash = oHistory.getPreviousHash();
+            
+                if (sPreviousHash !== undefined) {
+                    window.history.go(-1);
+                } else {
+                    var oRouter = this.getOwnerComponent().getRouter();
+                    oRouter.navTo("RouteMain", {}, true);
+                }
             },
 
 

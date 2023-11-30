@@ -79,7 +79,9 @@
                         />
                         <Text
                             id="birthdate"
-                            text="{Birthdate}"
+                            text="{path: 'Birthdate', type: 'sap.ui.model.odata.type.DateTime',  formatOptions: {  
+    pattern : 'd. MMM YYYY'
+  }}"
                         />
                     </f:SimpleForm>
                 </u:blocks>

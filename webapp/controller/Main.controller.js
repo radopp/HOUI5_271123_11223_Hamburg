@@ -1,11 +1,12 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "at/clouddna/training00/zhoui5/data/formatter/Formatter"
+    "at/clouddna/training00/zhoui5/data/formatter/Formatter",
+    "sap/m/MessageBox"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Formatter) {
+    function (Controller, Formatter, MessageBox) {
         "use strict";
 
         return Controller.extend("at.clouddna.training00.zhoui5.controller.Main", {
@@ -30,6 +31,20 @@ sap.ui.define([
 
                 this.getOwnerComponent().getRouter().navTo("CreateCustomer", { path: encodeURIComponent(sPath) });
 
+            },
+
+            onDeletePress: function (oEvent) {
+                let sSelectedPath = oEvent.getParameter("listItem").getBindingContext().getPath();
+
+                this.getView().getModel().remove(sSelectedPath, {
+                    success: function (oData, response) {
+                        this.getView().getModel().refresh();
+                        MessageBox.success("Erfolgreich gelöscht");
+                    }.bind(this),
+                    error: (oError) => {
+                        console.error(oError);
+                    }
+                });
             }
         });
     });
