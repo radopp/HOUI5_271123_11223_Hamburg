@@ -1,5 +1,5 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "at/clouddna/training00/zhoui5/controller/BaseController",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
     "at/clouddna/training00/zhoui5/data/formatter/Formatter",
@@ -9,10 +9,10 @@ sap.ui.define([
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Fragment, Formatter, MessageBox, History) {
+    function (BaseController, JSONModel, Fragment, Formatter, MessageBox, History) {
         "use strict";
 
-        return Controller.extend("at.clouddna.training00.zhoui5.controller.Customer", {
+        return BaseController.extend("at.clouddna.training00.zhoui5.controller.Customer", {
 
             _fragmentList: {},
             formatter: Formatter,

@@ -1,19 +1,20 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "at/clouddna/training00/zhoui5/controller/BaseController",
     "at/clouddna/training00/zhoui5/data/formatter/Formatter",
     "sap/m/MessageBox"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Formatter, MessageBox) {
+    function (BaseController, Formatter, MessageBox) {
         "use strict";
 
-        return Controller.extend("at.clouddna.training00.zhoui5.controller.Main", {
+        return BaseController.extend("at.clouddna.training00.zhoui5.controller.Main", {
 
             formatter: Formatter,
 
             onInit: function () {
+
             },
 
             onItemPress: function (oEvent) {
