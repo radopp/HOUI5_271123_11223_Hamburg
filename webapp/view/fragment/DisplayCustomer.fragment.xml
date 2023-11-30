@@ -6,82 +6,88 @@
 >
     <u:ObjectPageSection>
         <u:subSections>
-            <u:ObjectPageSubSection>
+            <u:ObjectPageSubSection titleUppercase="true">
                 <u:blocks>
-                    <f:SimpleForm title="{Firstname} {Lastname}">
+                    <f:SimpleForm title="{i18n>fragment.display.info}">
                         <Label
-                            text="{i18n>app.customerid}"
-                            labelFor="customerid"
-                        />
-                        <Text
-                            id="customerid"
-                            text="{Customerid}"
-                        />
-                        <Label
-                            text="{i18n>app.firstname}"
+                            text="{/#Z_P_CUSTOMERType/Firstname/@sap:label}"
                             labelFor="firstname"
                         />
                         <Text
                             id="firstname"
                             text="{Firstname}"
                         />
+
                         <Label
-                            text="{i18n>app.lastname}"
+                            text="{/#Z_P_CUSTOMERType/Lastname/@sap:label}"
                             labelFor="lastname"
                         />
                         <Text
                             id="lastname"
                             text="{Lastname}"
                         />
+
                         <Label
-                            text="{i18n>app.title}"
+                            text="{/#Z_P_CUSTOMERType/Title/@sap:label}"
                             labelFor="title"
                         />
                         <Text
                             id="title"
                             text="{Title}"
                         />
+
                         <Label
-                            text="{i18n>app.gender}"
+                            text="{/#Z_P_CUSTOMERType/Gender/@sap:label}"
                             labelFor="gender"
                         />
                         <Text
                             id="gender"
-                            text="{path: 'Gender', formatter: '.formatter.gender'}"
+                            text="{= ${Gender} === '1' ? ${i18n>female} : ${i18n>male} }"
                         />
+
                         <Label
-                            text="{i18n>app.email}"
-                            labelFor="email"
-                        />
-                        <Text
-                            id="email"
-                            text="{Email}"
-                        />
-                        <Label
-                            text="{i18n>app.phone}"
-                            labelFor="phone"
-                        />
-                        <Text
-                            id="phone"
-                            text="{Phone}"
-                        />
-                        <Label
-                            text="{i18n>app.website}"
-                            labelFor="website"
-                        />
-                        <Text
-                            id="website"
-                            text="{Website}"
-                        />
-                        <Label
-                            text="{i18n>app.birthdate}"
+                            text="{/#Z_P_CUSTOMERType/Birthdate/@sap:label}"
                             labelFor="birthdate"
                         />
                         <Text
                             id="birthdate"
-                            text="{path: 'Birthdate', type: 'sap.ui.model.odata.type.DateTime',  formatOptions: {  
-    pattern : 'd. MMM YYYY'
-  }}"
+                            text="{path: 'Birthdate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { pattern: 'd. MMM YYYY'}}"
+                        />
+                    </f:SimpleForm>
+                </u:blocks>
+            </u:ObjectPageSubSection>
+
+            <u:ObjectPageSubSection>
+                <u:blocks>
+                    <f:SimpleForm title="{i18n>fragment.display.contact}">
+                        <Label
+                            text="{/#Z_P_CUSTOMERType/Email/@sap:label}"
+                            labelFor="email"
+                        />
+                        <Link
+                            id="d"
+                            text="{Email}"
+                            press="handleEmailPress"
+                        />
+
+                        <Label
+                            text="{/#Z_P_CUSTOMERType/Phone/@sap:label}"
+                            labelFor="phone"
+                        />
+                        <Link
+                            id="g"
+                            text="{Phone}"
+                            press="handlePhonePress"
+                        />
+
+                        <Label
+                            text="{/#Z_P_CUSTOMERType/Website/@sap:label}"
+                            labelFor="website"
+                        />
+                        <Link
+                            id="e"
+                            text="{Website}"
+                            href="https://{Website}"
                         />
                     </f:SimpleForm>
                 </u:blocks>

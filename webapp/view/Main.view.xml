@@ -35,19 +35,19 @@
                     <Column id="idMainColumn">
                         <Text
                             id="main_text_customerid"
-                            text="{i18n>app.customerid}"
+                            text="{/#Z_P_CUSTOMERType/Customerid/@sap:label}"
                         />
                     </Column>
                     <Column id="main_column_firstname">
                         <Text
                             id="main_text_firstname"
-                            text="{i18n>app.firstname}"
+                            text="{/#Z_P_CUSTOMERType/Firstname/@sap:label}"
                         />
                     </Column>
                     <Column id="main_column_lastname">
                         <Text
                             id="main_text_lastname"
-                            text="{i18n>app.lastname}"
+                            text="{/#Z_P_CUSTOMERType/Lastname/@sap:label}"
                         />
                     </Column>
                     <Column
@@ -56,7 +56,7 @@
                     >
                         <Text
                             id="main_text_title"
-                            text="{i18n>app.title}"
+                            text="{/#Z_P_CUSTOMERType/Title/@sap:label}"
                         />
                     </Column>
                     <Column
@@ -65,7 +65,7 @@
                     >
                         <Text
                             id="main_text_gender"
-                            text="{i18n>app.gender}"
+                            text="{/#Z_P_CUSTOMERType/Gender/@sap:label}"
                         />
                     </Column>
                     <Column
@@ -74,7 +74,7 @@
                     >
                         <Text
                             id="main_text_birthdate"
-                            text="{i18n>app.birthdate}"
+                            text="{/#Z_P_CUSTOMERType/Birthdate/@sap:label}"
                         />
                     </Column>
                     <Column
@@ -83,7 +83,7 @@
                     >
                         <Text
                             id="main_text_email"
-                            text="{i18n>app.email}"
+                            text="{/#Z_P_CUSTOMERType/Email/@sap:label}"
                         />
                     </Column>
                     <Column
@@ -92,7 +92,7 @@
                     >
                         <Text
                             id="main_text_phone"
-                            text="{i18n>app.phone}"
+                            text="{/#Z_P_CUSTOMERType/Phone/@sap:label}"
                         />
                     </Column>
                     <Column
@@ -101,7 +101,7 @@
                     >
                         <Text
                             id="main_text_website"
-                            text="{i18n>app.website}"
+                            text="{/#Z_P_CUSTOMERType/Website/@sap:label}"
                         />
                     </Column>
                 </columns>

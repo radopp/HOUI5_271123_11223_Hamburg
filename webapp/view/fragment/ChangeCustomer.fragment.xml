@@ -6,57 +6,96 @@
 >
     <u:ObjectPageSection>
         <u:subSections>
-            <u:ObjectPageSubSection>
+            <u:ObjectPageSubSection titleUppercase="true">
                 <u:blocks>
-                    <f:SimpleForm
-                        title="{Firstname} {Lastname}"
-                        editable="true"
-                    >
-                        <Label text="{i18n>app.customerid}" />
-                        <ObjectIdentifier text="{Customerid}" />
+                    <f:SimpleForm title="{i18n>fragment.edit.info}">
+                        <Label
+                            text="{/#Z_P_CUSTOMERType/Firstname/@sap:label}"
+                            labelFor="fragment_edit_firstnamefirstname"
+                        />
+                        <Input
+                            id="fragment_edit_firstname"
+                            value="{Firstname}"
+                        />
 
-                        <Label text="{i18n>app.firstname}" />
-                        <Input value="{Firstname}" />
+                        <Label
+                            text="{/#Z_P_CUSTOMERType/Lastname/@sap:label}"
+                            labelFor="fragment_edit_lastname"
+                        />
+                        <Input
+                            id="fragment_edit_lastname"
+                            value="{Lastname}"
+                        />
 
-                        <Label text="{i18n>app.lastname}" />
-                        <Input value="{Lastname}" />
+                        <Label
+                            text="{/#Z_P_CUSTOMERType/Title/@sap:label}"
+                            labelFor="fragment_edit_title"
+                        />
+                        <Input
+                            id="fragment_edit_title"
+                            value="{Title}"
+                        />
 
-                        <Label text="{i18n>app.title}" />
-                        <Input value="{Title}" />
-
-                        <Label text="{i18n>app.gender}" />
+                        <Label
+                            text="{/#Z_P_CUSTOMERType/Gender/@sap:label}"
+                            labelFor="fragment_edit_gender"
+                        />
                         <Select
+                            id="fragment_edit_gender"
                             selectedKey="{Gender}"
                             items="{genderModel>/genders}"
                         >
                             <items>
                                 <core:Item
                                     key="{genderModel>key}"
-                                    text="{path: 'genderModel>key', formatter: '.formatter.gender'}"
+                                    text="{path: 'genderModel>text', formatter: '.genderFormatter'}"
                                 />
                             </items>
                         </Select>
 
-                        <Label text="{i18n>app.email}" />
+                        <Label
+                            text="{/#Z_P_CUSTOMERType/Birthdate/@sap:label}"
+                            labelFor="fragment_edit_birthdate"
+                        />
+                        <DatePicker
+                            id="fragment_edit_birthdate"
+                            value="{path: 'Birthdate', type: 'sap.ui.model.type.Date', formatOptions: {UTC: true}}"
+                        />
+                    </f:SimpleForm>
+                </u:blocks>
+            </u:ObjectPageSubSection>
+
+            <u:ObjectPageSubSection>
+                <u:blocks>
+                    <f:SimpleForm title="{i18n>fragment.edit.contact}">
+                        <Label
+                            text="{/#Z_P_CUSTOMERType/Email/@sap:label}"
+                            labelFor="fragment_edit_email"
+                        />
                         <Input
+                            id="fragment_edit_email"
                             type="Email"
                             value="{Email}"
                         />
 
                         <Label
-                            text="{i18n>app.phone}"
-                            labelFor="phone"
+                            text="{/#Z_P_CUSTOMERType/Phone/@sap:label}"
+                            labelFor="fragment_edit_phone"
                         />
                         <Input
+                            id="fragment_edit_phone"
                             type="Tel"
                             value="{Phone}"
                         />
 
-                        <Label text="{i18n>app.website}" />
-                        <Input value="{Website}" />
-
-                        <Label text="{i18n>app.birthdate}" />
-                        <DatePicker value="{path: 'Birthdate', type: 'sap.ui.model.odata.type.DateTime'}"/>
+                        <Label
+                            text="{/#Z_P_CUSTOMERType/Website/@sap:label}"
+                            labelFor="fragment_edit_website"
+                        />
+                        <Input
+                            id="fragment_edit_website"
+                            value="{Website}"
+                        />
                     </f:SimpleForm>
                 </u:blocks>
             </u:ObjectPageSubSection>

@@ -112,6 +112,17 @@ sap.ui.define([
                 }
             },
 
+            handleEmailPress: function (oEvent) {
+                let sEmail = oEvent.getSource().getText();
+
+                sap.m.URLHelper.triggerEmail(sEmail);
+            },
+
+            handlePhonePress: function (oEvent) {
+                let sPhoneNum = oEvent.getSource().getText();
+
+                sap.m.URLHelper.triggerTel(sPhoneNum);
+            }
 
 
         });
